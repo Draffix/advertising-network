@@ -1,0 +1,107 @@
+<div class="media messages-container" data-ng-controller="MessagesController" data-ng-init="findUserMessages()">
+	<div class="media-body">
+		<div class="panel panel-default share">
+			<form data-ng-submit="sendMessage()" novalidate>
+				<div class="input-group">
+					<!--<button type="submit" class="input-group-btn">Poslat</button>-->
+					<div class="input-group-btn">
+						<!--<a href="#" class="btn btn-primary" onclick="document.forms[0].submit();">-->
+							<!--&lt;!&ndash;<a class="btn btn-primary" href="#">&ndash;&gt;-->
+							<!--<i class="fa fa-envelope"></i> Poslat-->
+						<!--</a>-->
+					</div>
+					<input type="submit" value="Poslat"/>
+
+
+					<!-- /btn-group -->
+					<input type="text" data-ng-model="message" id="message" class="form-control share-text" required placeholder="Napiš zprávu..."/>
+
+					<div data-ng-show="error">
+						<strong data-ng-bind="error"></strong>
+					</div>
+				</div>
+			</form>
+
+			<!-- /input-group -->
+		</div>
+		<!--<div data-ng-repeat="message in messages">-->
+		<!--<p data-ng-bind="message.message"></p>-->
+		<!--</div>-->
+
+		<div class="media {{message.from === authentication.user.username ? 'pull-right-margin' : 'pull-left-margin'}}" data-ng-repeat="message in messages | orderBy : '-created'">
+
+			<div class="{{message.from === authentication.user.username ? 'pull-right' : 'pull-left'}} media-object">
+				<a href="#">
+					<img src="images/people/110/woman-5.jpg" width="60" alt=""/>
+				</a>
+			</div>
+			<div class="media-body message">
+				<div class="panel panel-default">
+					<div class="panel-heading panel-heading-white">
+						<div class="pull-right">
+							<small class="text-muted">{{ message.created | relativeDate }}</small>
+						</div>
+						<a href="#">{{ message.from }}</a>
+					</div>
+					<div class="panel-body">
+						{{ message.message }}
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<div class="media">-->
+		<!--<div class="pull-right media-object">-->
+		<!--<img src="images/people/110/guy-5.jpg" width="60" alt=""/>-->
+		<!--</div>-->
+		<!--<div class="media-body message">-->
+		<!--<div class="panel panel-default">-->
+		<!--<div class="panel-heading panel-heading-white">-->
+		<!--<div class="pull-right">-->
+		<!--<small class="text-muted">staré 10 min</small>-->
+		<!--</div>-->
+		<!--<a href="#">Já</a>-->
+		<!--</div>-->
+		<!--<div class="panel-body">-->
+		<!--Myslíš teďka ve čtvrtek?-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="media">-->
+		<!--<div class="pull-left media-object">-->
+		<!--<img src="images/people/110/woman-5.jpg" width="60" alt=""/>-->
+		<!--</div>-->
+		<!--<div class="media-body message">-->
+		<!--<div class="panel panel-default">-->
+		<!--<div class="panel-heading panel-heading-white">-->
+		<!--<div class="pull-right">-->
+		<!--<small class="text-muted">staré 1 den</small>-->
+		<!--</div>-->
+		<!--<a href="#">Mary D.</a>-->
+		<!--</div>-->
+		<!--<div class="panel-body">-->
+		<!--Jo tento čtvrtek. Ale jestli nemůžeš tak se můžeme domluvit na jiný den-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="media">-->
+		<!--<div class="pull-right media-object">-->
+		<!--<img src="images/people/110/guy-5.jpg" width="60" alt=""/>-->
+		<!--</div>-->
+		<!--<div class="media-body message">-->
+		<!--<div class="panel panel-default">-->
+		<!--<div class="panel-heading panel-heading-white">-->
+		<!--<div class="pull-right">-->
+		<!--<small class="text-muted">staré 3 dny</small>-->
+		<!--</div>-->
+		<!--<a href="#">Já</a>-->
+		<!--</div>-->
+		<!--<div class="panel-body">-->
+		<!--Spíše se domluvíme na úterý, co myslíš?-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+	</div>
+</div>

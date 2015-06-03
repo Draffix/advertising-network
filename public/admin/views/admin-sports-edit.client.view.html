@@ -1,0 +1,23 @@
+<div class="row" data-ng-controller="SportController" data-ng-init="findOne()">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Úprava sportu</h4>
+			</div>
+			<div class="panel-body">
+				<form ng-submit="update()" novalidate>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="form-group form-control-default">
+								<label for="firstName">Název</label>
+								<input type="text" class="form-control" id="firstName" placeholder="Název sportu" ng-model="sport.nazev">
+							</div>
+						</div>
+					</div>
+					<a class="btn btn-primary" href="/#!/admin/sports/">Zpět na výpis</a>
+					<button type="submit" class="btn btn-primary pull-right">Upravit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

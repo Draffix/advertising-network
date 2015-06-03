@@ -1,0 +1,54 @@
+<div class="row" data-ng-controller="ProfilController" data-ng-init="find()">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Úprava profilu</h4>
+			</div>
+			<div class="panel-body">
+				<form ng-submit="update()" novalidate>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-control-default">
+								<label for="firstName">Jméno</label>
+								<input type="text" class="form-control" id="firstName" placeholder="Vaše jméno" ng-model="uzivatel.firstName">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group form-control-default">
+								<label for="lastName">Příjmení</label>
+								<input type="text" class="form-control" id="lastName" placeholder="Vaše příjmení" ng-model="uzivatel.lastName">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="form-group form-control-default">
+								<label for="email">Email</label>
+								<input type="email" class="form-control" id="email" placeholder="Vložte email" ng-model="uzivatel.email">
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group form-control-default">
+								<label for="vek">Věk</label>
+								<input type="text" class="form-control" id="vek" placeholder="Váš věk" ng-model="uzivatel.vek">
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group form-control-default">
+								<label for="prace">Práce</label>
+								<input type="text" class="form-control" id="prace" placeholder="Vaše povolání" ng-model="uzivatel.prace">
+							</div>
+						</div>
+						<div class="col-md-3">
+							<label for="pohlavi">Pohlaví</label>
+							<select class="form-control" id="pohlavi" ng-model="uzivatel.pohlavi" ng-options="pohlavi for pohlavi in ['Muž', 'Žena'] track by pohlavi">
+							</select>
+						</div>
+					</div>
+					<a class="btn btn-primary" href="/#!/profil/{{ authentication.user.username }}">Zpět na profil</a>
+					<button type="submit" class="btn btn-primary pull-right">Upravit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

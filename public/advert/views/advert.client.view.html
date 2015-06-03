@@ -1,0 +1,261 @@
+<section ng-controller="AdvertController">
+<div class="cover profile">
+	<div class="wrapper">
+		<div class="image">
+			<img src="images/2.jpg" alt="people"/>
+		</div>
+	</div>
+	<div class="cover-info" data-ng-show="authentication.user">
+		<div class="avatar">
+			<img src="images/people/110/guy-5.jpg" alt="people"/>
+		</div>
+		<div class="name"><span data-ng-bind="authentication.user.fullName"></span></div>
+		<ul class="cover-nav">
+			<li class="active"><a href="index.html"><i class="fa fa-fw icon-ship-wheel"></i>
+				Inzeráty</a>
+			</li>
+			<li><a href="/#!/profil/{{ authentication.user.username }}"><i class="fa fa-fw icon-user-1"></i> Můj profil</a>
+			</li>
+			<li><a href="/#!/messages/"><i class="fa fa-envelope-o"></i> Přátelé</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="timeline row" data-toggle="gridalicious" ng-init="find()">
+
+<!-- PRVNI PRISPEVEK -->
+<div class="timeline-block" ng-repeat="advert in adverts">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="media">
+				<a href="" class="pull-left">
+					<img src="images/people/50/guy-2.jpg" class="media-object">
+				</a>
+
+				<div class="media-body">
+					<a href="/#!/messages/{{ advert.user.username }}" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+					<a href="">{{ advert.user.firstName }}</a> | <a href="">{{ advert.city }}</a>, <a href="">{{ advert.region.nazev }} kraj</a>
+					<span>{{ advert.created | date: 'd. MMMM, yyyy ' }}</span>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<p>
+				{{ advert.advert }}
+			</p>
+		</div>
+	</div>
+</div>
+
+
+<!-- DRUHY PRISPEVEK -->
+<div class="timeline-block">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="media">
+				<a href="" class="pull-left">
+					<img src="images/people/50/guy-3.jpg" class="media-object">
+				</a>
+
+				<div class="media-body">
+					<a href="#" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+					<a href="">Stáňa</a>
+					<span>on 15th January, 2014</span>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<p>
+				Ahoj, hledám zkušenějšího parťáka na sportovní lezení v okolí Prahy 11. Jsem začátečník, ale při prvním
+				výlezu jsem zdolala celou 17m stěnu. Jsem velká sportovkyně. Těším se na vaše zprávy a na setkání!
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- TRETI PRISPEVEK -->
+<div class="timeline-block">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="media">
+				<a href="" class="pull-left">
+					<img src="images/people/50/guy-4.jpg" class="media-object">
+				</a>
+
+				<div class="media-body">
+					<a href="#" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+					<a href="">Tučňák</a>
+					<span>on 15th January, 2014</span>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<p>
+				Ahoj. Běhám 2-3 krát v týdnu v Milíčovským lese, tak 7-8 km (6,30 -7,30 min/km) a chci přidat fitko v
+				okolí (Háje nebo Opatov) jednou týdně. Stačí když se přidáš jednou týdně, potřebuju motivaci :-)
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- CTVRTY PRISPEVEK -->
+<div class="timeline-block">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="media">
+				<a href="" class="pull-left">
+					<img src="images/people/50/guy-5.jpg" class="media-object">
+				</a>
+
+				<div class="media-body">
+					<a href="#" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+					<a href="">Marek</a>
+					<span>on 15th January, 2014</span>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<p>
+				Lukostřelba v klubu Chiméra :) ahoj, hledam touto cestou 2 lidi, které by lákalo zkusit lukostřelbu( ve
+				3 je výrazná sleva ). Nejsou potřeba žádné základy. Jsem studentka VŠ.
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- PATY PRISPEVEK -->
+<div class="timeline-block">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="media">
+				<a href="" class="pull-left">
+					<img src="images/people/50/guy-6.jpg" class="media-object">
+				</a>
+
+				<div class="media-body">
+					<a href="#" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+					<a href="">Mokasín</a>
+					<span>on 15th January, 2014</span>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<p>
+				Hledám partnera/ku na běh v okolí Prahy 9, ale mohu kamkoliv dojet. Chtěla bych běhat co nejčastěji v
+				podvečerních hodinách. Neběham moc rychle, spise rekreačně,při běhu posloucham muziku.
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- SESTY PRISPEVEK -->
+<div class="timeline-block">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="media">
+				<a href="" class="pull-left">
+					<img src="images/people/50/guy-7.jpg" class="media-object">
+				</a>
+
+				<div class="media-body">
+					<a href="#" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+					<a href="">Fido</a>
+					<span>on 15th January, 2014</span>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<p>
+				Ahoj, dříve jsem hrála závodně pár sportů a jezdila od mala na skejtu, ale znáte to, stárnutí nám ubírá
+				čas a tak jsem se vším přestala. Teď bych se ale zase chtěla k něčemu takovému vrátit, mít zase radost a
+				prožívat adrenalin. Byl by tu někdo, kdo by mě naučil jezdit na longboardu? Uvažuji o tom, že si ho
+				koupím, ale chci mít jistotu, že mě to bude bavit.
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- SEDMY PRISPEVEK -->
+<div class="timeline-block">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="media">
+				<a href="" class="pull-left">
+					<img src="images/people/50/woman-1.jpg" class="media-object">
+				</a>
+
+				<div class="media-body">
+					<a href="#" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+					<a href="">Kiki</a>
+					<span>on 15th January, 2014</span>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<p>
+				Hledám parťáka/parťačku na běhání – Krč, Libuš, Modřany. Nedávno jsem začala, behám cca. 5 – 10km
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- OSMY PRISPEVEK -->
+<div class="timeline-block">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="media">
+				<a href="" class="pull-left">
+					<img src="images/people/50/woman-2.jpg" class="media-object">
+				</a>
+
+				<div class="media-body">
+					<a href="#" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+					<a href="">Kačaba</a>
+					<span>on 15th January, 2014</span>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<p>
+				Hledám parťáka/čku na lezení v Praze. Někoho, kdo to bude myslet vážně a bude chtít aspoň dvakrát v
+				týdnu zalézt. Dříve jsem lezl víc, dával jsem 7-8, dneska budu rád za 5, ale elán neschází, tak forma
+				snad příjde taky :
+			</p>
+		</div>
+	</div>
+</div>
+
+<!-- DEVATY PRISPEVEK -->
+<div class="timeline-block">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="media">
+				<a href="" class="pull-left">
+					<img src="images/people/50/guy-8.jpg" class="media-object">
+				</a>
+
+				<div class="media-body">
+					<a href="#" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+					<a href="">Adam</a>
+					<span>on 15th January, 2014</span>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<p>
+				Hledám parťáka na Aikido v Brně a okolí (Boskovice, Letovice …). Jedná se o bojový umění, který je
+				koncipovaný tak, aby člověk co ho používá sám nikomu neublížil pokud tedy sám nechce, je to velkej
+				rozdíl oproti třeba karate, nebo kung-fu. Viz se mrkněte na youtube, nebo na Seagala :D V případě zájmu
+				mě kontaktujte…
+			</p>
+		</div>
+	</div>
+</div>
+
+</div>
+
+</section>
+
+
+<script src="js/module-layout.min.js"></script>

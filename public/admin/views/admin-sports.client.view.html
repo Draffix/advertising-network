@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<a class="btn btn-primary pull-left" href="/#!/admin/sports/create">Vytvořit nový sport</a>
+		</div>
+	</div>
+</div>
+<div class="panel panel-default" ng-controller="SportController">
+	<button ng-click="tableParams.sorting({})" class="btn btn-primary pull-right">Zrušit třídění</button>
+	<button ng-click="tableParams.filter({})" class="btn btn-primary pull-right">Zrušit filtr</button>
+	<div class="panel-heading">
+		<h4 class="panel-title">Sporty</h4>
+	</div>
+
+	<!-- Progress table -->
+	<div class="table-responsive">
+		<table class="table v-middle" datatable="" ng-table="tableParams" show-filter="true">
+			<tbody>
+			<tr ng-repeat="sport in $data">
+				<td data-title="'Název'" sortable="'nazev'" filter="{ 'nazev': 'text' }">
+					{{ sport.nazev }}
+				</td>
+				<td class="text-right">
+					<a href="/#!/admin/sports/{{ sport._id }}/edit" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="top" title="Upravit"><i class="fa fa-pencil"></i></a>
+					<a href="#" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Smazat" data-ng-click="removeSport(sport._id);"><i
+							class="fa fa-times"></i></a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

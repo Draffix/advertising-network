@@ -1,0 +1,15 @@
+<section ng-controller="SportController" ng-init="find()">
+	<div class="container-fluid">
+
+		<div class="row-fluid">
+
+			<div class="well well-small" id="menu-buttons">
+				<div class="btn-group" ng-repeat="sport in sports">
+					<a href="" class="btn btn-info" style="margin: 5px">
+						{{ sport.nazev }}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

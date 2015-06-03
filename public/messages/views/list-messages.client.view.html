@@ -1,0 +1,128 @@
+<div class="media messages-container" data-ng-controller="MessagesController" data-ng-init="find()">
+	<div class="messages-list pull-left">
+		<div class="panel panel-default">
+			<ul class="list-group">
+				<li class="list-group-item" data-ng-repeat="message in lastMessages">
+					<a href="#!/messages/{{ message.from }}">
+						<div class="media">
+							<div class="media-object pull-left">
+								<img src="images/people/110/woman-5.jpg" width="50" alt=""/>
+							</div>
+							<div class="media-body">
+								<span class="date">{{ message.created | relativeDate }}</span>
+								<span class="user">{{ message.from }}</span>
+
+								<div class="message">{{ message.message | cut:true:20:' ...'}}</div>
+							</div>
+						</div>
+					</a>
+				</li>
+				<!--<li class="list-group-item active">-->
+					<!--<a href="#">-->
+						<!--<div class="media">-->
+							<!--<div class="media-object pull-left">-->
+								<!--<img src="images/people/110/guy-3.jpg" height="50" alt=""/>-->
+							<!--</div>-->
+							<!--<div class="media-body">-->
+								<!--<span class="date">Sobota</span>-->
+								<!--<span class="user">Adrian T.</span>-->
+
+								<!--<div class="message">Těším se až...</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+				<!--<li class="list-group-item">-->
+					<!--<a href="#">-->
+						<!--<div class="media">-->
+							<!--<div class="media-object pull-left">-->
+								<!--<img src="images/people/110/woman-4.jpg" width="50" alt=""/>-->
+							<!--</div>-->
+							<!--<div class="media-body">-->
+								<!--<span class="date">Pátek</span>-->
+								<!--<span class="user">Michelle A.</span>-->
+
+								<!--<div class="message">Ahoj.</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+				<!--<li class="list-group-item">-->
+					<!--<a href="#">-->
+						<!--<div class="media">-->
+							<!--<div class="media-object pull-left">-->
+								<!--<img src="images/people/110/woman-3.jpg" height="50" alt=""/>-->
+							<!--</div>-->
+							<!--<div class="media-body">-->
+								<!--<span class="date">11. ledna</span>-->
+								<!--<span class="user">Sue T.</span>-->
+
+								<!--<div class="message">Těším se až...</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+				<!--<li class="list-group-item">-->
+					<!--<a href="#">-->
+						<!--<div class="media">-->
+							<!--<div class="media-object pull-left">-->
+								<!--<img src="images/people/110/guy-9.jpg" height="50" alt=""/>-->
+							<!--</div>-->
+							<!--<div class="media-body">-->
+								<!--<span class="date">11. ledna</span>-->
+								<!--<span class="user">Adrian T.</span>-->
+
+								<!--<div class="message">Těším se až...</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+				<!--<li class="list-group-item">-->
+					<!--<a href="#">-->
+						<!--<div class="media">-->
+							<!--<div class="media-object pull-left">-->
+								<!--<img src="images/people/110/woman-9.jpg" height="50" alt=""/>-->
+							<!--</div>-->
+							<!--<div class="media-body">-->
+								<!--<span class="date">2. ledna</span>-->
+								<!--<span class="user">Adrian T.</span>-->
+
+								<!--<div class="message">Těším se až...</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+				<!--<li class="list-group-item">-->
+					<!--<a href="#">-->
+						<!--<div class="media">-->
+							<!--<div class="media-object pull-left">-->
+								<!--<img src="images/people/110/guy-6.jpg" height="50" alt=""/>-->
+							<!--</div>-->
+							<!--<div class="media-body">-->
+								<!--<span class="date">26. prosince</span>-->
+								<!--<span class="user">Adrian T.</span>-->
+
+								<!--<div class="message">Těším se až...</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+				<!--<li class="list-group-item">-->
+					<!--<a href="#">-->
+						<!--<div class="media">-->
+							<!--<div class="media-object pull-left">-->
+								<!--<img src="images/people/110/guy-2.jpg" height="50" alt=""/>-->
+							<!--</div>-->
+							<!--<div class="media-body">-->
+								<!--<span class="date">15. listopadu</span>-->
+								<!--<span class="user">Adrian T.</span>-->
+
+								<!--<div class="message">Těším se až...</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+			</ul>
+		</div>
+	</div>
+</div>

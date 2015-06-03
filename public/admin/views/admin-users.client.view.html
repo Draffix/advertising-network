@@ -1,0 +1,43 @@
+<div class="panel panel-default" ng-controller="UsersController">
+	<button ng-click="tableParams.sorting({})" class="btn btn-primary pull-right">Zrušit třídění</button>
+	<button ng-click="tableParams.filter({})" class="btn btn-primary pull-right">Zrušit filtr</button>
+	<div class="panel-heading">
+		<h4 class="panel-title">Uživatelé</h4>
+	</div>
+
+	<!-- Progress table -->
+	<div class="table-responsive">
+		<table class="table v-middle" datatable="" ng-table="tableParams" show-filter="true">
+			<tbody>
+			<tr ng-repeat="user in $data">
+				<td data-title="'Jméno'" sortable="'fullName'" filter="{ 'fullName': 'text' }">
+					<img src="images/people/110/guy-5.jpg" width="40" class="img-circle"/> {{ user.fullName }}
+				</td>
+				<td data-title="'Email'" sortable="'email'" filter="{ 'email': 'text' }">
+					<a href="mailto:{{ user.email }}"> {{ user.email }} </a>
+				</td>
+				<td data-title="'Pohlaví'" sortable="'pohlavi'" filter="{ 'pohlavi': 'text' }">
+					{{ user.pohlavi }}
+				</td>
+				<td data-title="'Práce'" sortable="'prace'" filter="{ 'prace': 'text' }">
+					{{ user.prace }}
+				</td>
+				<td data-title="'Věk'" sortable="'vek'" filter="{ 'vek': 'text' }">
+					{{ user.vek }}
+				</td>
+				<td data-title="'Přezdívka'" sortable="'username'" filter="{ 'username': 'text' }">
+					{{ user.username }}
+				</td>
+				<td data-title="'Provider'" sortable="'provider'" filter="{ 'provider': 'text' }">
+					{{ user.provider }}
+				</td>
+				<td class="text-right">
+					<a href="/#!/admin/users/{{ user._id }}/edit" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="top" title="Upravit"><i class="fa fa-pencil"></i></a>
+					<a href="#" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Smazat" data-ng-click="removeUser(user._id);"><i
+							class="fa fa-times"></i></a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

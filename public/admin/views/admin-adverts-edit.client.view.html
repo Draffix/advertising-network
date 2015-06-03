@@ -1,0 +1,70 @@
+<div class="row" ng-controller="AdvertController" ng-init="findOne()">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Upravit inzerát</h4>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal" role="form" ng-submit="updateFromAdmin()" novalidate>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-3 control-label">Nadpis</label>
+
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="inputEmail3" placeholder="Type here.." ng-model="advert.advert.title">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Inzerát</label>
+
+						<div class="col-sm-9">
+							<textarea class="form-control" rows="5" ng-model="advert.advert.advert"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-3 control-label">Město</label>
+
+						<div class="col-sm-9">
+							<input class="form-control" id="inputEmail3" ng-model="chosenPlace" googleplace>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Kraj</label>
+
+						<div class="col-sm-6">
+
+							<ui-select ng-model="selectedRegion.selected" theme="bootstrap" style="width:300px;">
+								<ui-select-match placeholder="Vyberte nebo vyhledejte kraj v seznamu...">
+									{{$select.selected.nazev}}
+								</ui-select-match>
+								<ui-select-choices repeat="item in advert.region_list | filter: $select.search">
+									<div ng-bind-html="item.nazev | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Sporty</label>
+
+						<div class="col-sm-6">
+
+							<ui-select multiple ng-model="selectedSport.selected" theme="bootstrap" ng-disabled="disabled">
+								<ui-select-match placeholder="Vyberte sport...">{{$item.nazev}}</ui-select-match>
+								<ui-select-choices repeat="sport in sportList | filter: $select.search">
+									<div ng-bind-html="sport.nazev | highlight: $select.search"></div>
+								</ui-select-choices>
+							</ui-select>
+
+						</div>
+					</div>
+					<a class="btn btn-primary" href="/#!/profil/{{ authentication.user.username }}">Zpět na profil</a>
+					<button type="submit" class="btn btn-primary pull-right">Upravit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

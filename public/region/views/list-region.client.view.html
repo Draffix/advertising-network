@@ -1,0 +1,28 @@
+<div class="timeline row" data-toggle="gridalicious" ng-controller="RegionController" ng-init="findRegionAdverts()">
+
+	<!-- PRVNI PRISPEVEK -->
+	<div class="timeline-block" ng-repeat="advert in regionAdverts">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="media">
+					<a href="" class="pull-left">
+						<img src="images/people/50/guy-2.jpg" class="media-object">
+					</a>
+
+					<div class="media-body">
+						<a href="/#!/messages/{{ advert.user.username }}" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+						<a href="">{{ advert.user.firstName }}</a> | <a href="">{{ advert.city }}</a>, <a href="">{{ advert.region.nazev }} kraj</a>
+						<span>{{ advert.created | date: 'd. MMMM, yyyy ' }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="panel-body">
+				<p>
+					{{ advert.advert }}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="js/module-layout.min.js"></script>

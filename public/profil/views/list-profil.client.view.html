@@ -1,0 +1,186 @@
+<div class="media user-profile" data-ng-controller="ProfilController" data-ng-init="find()">
+	<div class="media-object pull-left">
+		<div class="panel panel-default profile-user-box">
+			<div class="avatar">
+				<img src="images/people/110/guy-5.jpg" alt="" class="img-circle"/>
+
+				<h3>{{ uzivatel.fullName }}</h3>
+			</div>
+		</div>
+	</div>
+	<div class="media-body">
+
+		<div class="row">
+			<div class="col-md-6">
+
+				<!--Friends -->
+				<div class="panel panel-default">
+					<div class="panel-heading panel-heading-gray">
+						<a href="/#!/profil/{{ authentication.user.username }}/edit" class="btn btn-white btn-xs pull-right" data-ng-show="authentication.user._id == uzivatel._id"><i class="fa fa-pencil"></i></a>
+						<i class="fa fa-info-circle"></i> O mě
+					</div>
+					<div class="panel-body">
+						<ul class="list-unstyled profile-about">
+							<li>
+								<div class="row">
+									<div class="col-sm-4"><span class="text-muted">Věk</span>
+									</div>
+									<div class="col-sm-8">{{ uzivatel.vek }}</div>
+								</div>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col-sm-4"><span class="text-muted">Práce</span>
+									</div>
+									<div class="col-sm-8">{{ uzivatel.prace }}</div>
+								</div>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col-sm-4"><span class="text-muted">Pohlaví</span>
+									</div>
+									<div class="col-sm-8">{{ uzivatel.pohlavi }}</div>
+								</div>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col-sm-4"><span class="text-muted">Lokalita</span>
+									</div>
+									<div class="col-sm-8">Ostrava, Moravskoslezský kraj</div>
+								</div>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col-sm-4"><span class="text-muted">Sport</span>
+									</div>
+									<div class="col-sm-8">fotbal, hokej, florbal, volejbal, cyklistika
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+
+				<!--Friends -->
+				<div class="panel panel-default" ng-controller="FriendsController" data-ng-init="findFriends()">
+					<div class="panel-heading panel-heading-gray">
+						<a href="#" class="btn btn-primary btn-xs pull-right" data-ng-hide="authentication.user._id == uzivatel._id" data-ng-click="addFriend(uzivatel._id);">
+							Přidat <i class=" fa fa-plus"></i></a>
+						<i class="icon-user-1"></i> Přátelé
+					</div>
+					<div class="panel-body">
+						<ul class="list-unstyled friends-list">
+							<li ng-repeat="friend in friends.friends">
+								<a href="/#!/profil/{{ friend.username }}">
+									<img src="images/people/110/guy-6.jpg" alt="image" class="img-responsive"/>
+								</a>
+								<a href="/#!/profil/{{ friend.username }}">
+									<p style="text-align: center">{{ friend.username }}</p>
+								</a>
+
+								<p style="text-align: center">
+									<a href="#" data-ng-click="removeFriend(friend._id, friends._id);">Odebrat z
+										přátel</a></p>
+
+								<p></p>
+							</li>
+							<li>
+								<a href="#">
+									<img src="images/people/110/woman-3.jpg" alt="image" class="img-responsive"/>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="images/people/110/guy-2.jpg" alt="image" class="img-responsive"/>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="images/people/110/guy-9.jpg" alt="image" class="img-responsive"/>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="images/people/110/woman-9.jpg" alt="image" class="img-responsive"/>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="images/people/110/guy-4.jpg" alt="image" class="img-responsive"/>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="images/people/110/guy-1.jpg" alt="image" class="img-responsive"/>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="images/people/110/woman-4.jpg" alt="image" class="img-responsive"/>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="images/people/110/guy-6.jpg" alt="image" class="img-responsive"/>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" ng-controller="AdvertController" data-ng-init="findOne()">
+			<div class="col-md-6">
+				<div class="panel panel-default" data-ng-show="advert.advert">
+					<div class="panel-heading panel-heading-gray">
+						<a href="/#!/inzerat/{{ profil.user.username }}/edit" class="btn btn-white btn-xs pull-right" data-ng-show="authentication.user._id == uzivatel._id"><i class="fa fa-pencil"></i></a>
+						<i class="fa fa-trello"></i> Inzerát
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<a href="#" class="h5 margin-none">{{ advert.advert.city }}</a>
+
+										<div class="text-muted">
+											<small><i class="fa fa-calendar"></i> {{ advert.advert.created | date: 'd. MMMM, yyyy' }}
+											</small>
+										</div>
+									</div>
+									<div class="panel-body">
+										<p>
+											{{ advert.advert.advert }}
+										</p>
+									</div>
+								</div>
+								<a class="btn btn-danger pull-right" href="#" data-ng-click="removeAdvert();">Smazat inzerát</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default" data-ng-show="!advert.advert">
+					<div class="panel-heading panel-heading-gray">
+						<i class="fa fa-trello"></i> Inzerát
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-12" data-ng-show="authentication.user._id == uzivatel._id">
+								<a class="btn btn-primary" href="/#!/inzerat/{{ authentication.user.username }}/add">Přidat inzerát?</a>
+							</div>
+							<div class="col-md-12" data-ng-show="authentication.user._id != uzivatel._id">
+								<p>Uživatel zatím nepřidal žádný inzerát</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
